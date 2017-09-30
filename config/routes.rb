@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	root 'categories#index'
+	root 'notices#index'
   devise_for :users
   resources :categories
   resources :notices
