@@ -7,6 +7,9 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
+      elsif user.admin? == false
+        can :manage, Notice, :user_id => user.id
+        can :read, Category
       else
         can :read, :all
       end
