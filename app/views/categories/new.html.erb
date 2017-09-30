@@ -1,0 +1,13 @@
+<h2>Add new category</h2>
+<%= simple_form_for @category do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.input :title, required: true, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Add new category", class: "btn btn-default"  %>
+    </div>
+  </div>
+<% end %>
