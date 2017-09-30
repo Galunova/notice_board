@@ -1,0 +1,28 @@
+<%= simple_form_for @notice do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.input :title, required: true, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :content, required: true, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :contact_details, required: true, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.association :category, include_blank: false, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.hidden_field :user_id, value: current_user.id, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Add new category", class: "btn btn-default"  %>
+    </div>
+  </div>
+<% end %>
