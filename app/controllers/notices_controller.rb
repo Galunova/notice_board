@@ -15,7 +15,6 @@ class NoticesController < ApplicationController
 
   def create
     @notice = Notice.new(notice_params)
-
     if @notice.save
       redirect_to root_path
     else
@@ -38,7 +37,8 @@ class NoticesController < ApplicationController
   end
 
   def destroy
-    @notice = Notice.destroy(params[:id])
+    @notice = Notice.find(params[:id])
+    @notice.destroy
     redirect_to root_path
   end
 
