@@ -1,0 +1,11 @@
+<h1><%= @notice.title %></h1>
+<p><%= @notice.content %></p>
+<p>
+    Contact details: <b><%= @notice.contact_details %></b>
+</p>
+<p>
+    <b>Category: </b> <%= @notice.category.title %>
+</p>
+<div>
+    <%= link_to 'Back to list', notices_path %>
+</div>
