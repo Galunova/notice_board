@@ -5,7 +5,7 @@
       <% @notices.each do |notice| %>
         <li class="list-group-item">
           <span>Category: <u><%= notice.category.title.capitalize %></u></span></br>
-          <span><u><%= notice.title %></u></span></br>
+          <span><u><%= link_to notice.title, notice_path(notice) %></u></span></br>
           <span><%= notice.content %></span></br>
           <span>by: <%= notice.user.name %></span></br>
         </li>

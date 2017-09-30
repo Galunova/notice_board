@@ -6,6 +6,8 @@
 <p>
     <b>Category: </b> <%= @notice.category.title %>
 </p>
-<div>
-    <%= link_to 'Back to list', notices_path %>
-</div>
+    <%= link_to 'Edit notice', edit_notice_path, :html_options => {class: 'btn btn-default'} if can? :manage, :all %>
+		<%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' }, :html_options => {class: 'btn btn-default'} if can? :manage, :all %>
+<span class="btn btn-default">
+    <%= link_to 'Back to list', root_path %>
+</span>
