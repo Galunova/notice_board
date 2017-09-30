@@ -1,21 +1,15 @@
-<table class="table table-striped">
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Contact details</th>
-    <th>Category</th>
-    <th style="width: 100px;">Actions</th>
-  </tr>
-
-  <% @notices.each do |notice| %>
-      <tr>
-        <td><%= notice.title %></td>
-        <td><%= notice.content %></td>
-        <td><%= notice.contact_details %></td>
-        <td><%= notice.category.title %></td>
-        <td>
-          <%= link_to 'Delete', notice_path(notice), method: :delete, data: {confirm: 'Are you sure?'} %>
-        </td>
-      </tr>
-  <% end %>
-</table>
+<div class="row">
+  <%= render 'shared/categories' %>
+  <div class="col-md-5">
+    <ul class="list-group">
+      <% @notices.each do |notice| %>
+        <li class="list-group-item">
+          <span>Category: <u><%= notice.category.title.capitalize %></u></span></br>
+          <span><u><%= notice.title %></u></span></br>
+          <span><%= notice.content %></span></br>
+          <span>by: <%= notice.user.name %></span></br>
+        </li>
+      <% end %>
+    </ul>   
+  </div>
+</div>

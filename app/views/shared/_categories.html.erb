@@ -1,0 +1,12 @@
+<div class="col-md-4">
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-success">
+      Categories
+    </a>
+    <%= link_to "All categories", root_path, class: 'list-group-item' %>
+    <% Category.all.each do |category| %>
+      <%= link_to category.title, category_path(category), class: 'list-group-item' %>
+
+    <% end %>
+  </div>
+</div>

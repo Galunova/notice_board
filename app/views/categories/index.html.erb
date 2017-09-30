@@ -1,23 +1,3 @@
-<div class="row">
-  <div class="col-sm-12">
-    <h1>Categories <%= link_to 'Add category', new_category_path, class: 'btn btn-success' if can? :manage, :all %></h1>
-  </div>
+<div class="row">    
+  <%= render 'shared/categories' %>
 </div>
-
-<hr />
-
-<table class="table table-striped">
-  <tr>
-    <th>Title</th>
-    <th style="width: 100px;">Actions</th>
-  </tr>
-
-  <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.title %></td>
-        <td>
-          <%= link_to 'Delete', category_path(category), method: :delete, data: {confirm: 'Are you sure?'} if can? :manage, :all %>
-        </td>
-      </tr>
-  <% end %>
-</table>
